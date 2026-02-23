@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZA Home Page</title>
+    <link rel="icon" href="images/ZA_logo.png">
+    <link rel="stylesheet" href="css/style_home.css">
+</head>
+<body>
+    <!---
+        Navigation Bar-->
+    <nav>
+        <div class="navOne">
+
+            <div class="navLogo">
+                <img src="images/ZA_logo.png" alt="" width = "100" height="100" onclick="location.href='HomePage.html';">
+            </div>
+
+            <div class="navSearch">
+                <div class="search">
+                    <input type = "text" placeholder="Search..." class="searchInput">
+                </div>
+
+            </div>
+
+            <div class="navCart">
+                <img src="images/Cart.png" alt="" width = "50" height="50" onclick="location.href='basket.html';">
+            </div>
+
+        </div>
+        <!--Navigation Categories-->
+        <div class="navTwo">
+            <h3 class="itemCat" onclick="location.href='ShoesPage.html';"> SHOES </h3>
+            <h3 class="itemCat" onclick="location.href='HatsPage.html';"> HATS </h3>
+            <h3 class="itemCat" onclick="location.href='AccPage.html';"> ACCESSORIES </h3>
+            <h3 class="itemCat" onclick="location.href='AppPage.html';"> APPAREL </h3>
+    
+    
+        </div>
+    </nav>
+    <!-- Slider-->
+    <div class="slider">
+        <button class="arrow left-arrow" onclick="prevSlide()">&#10094;</button>
+        <div class="sliderWrapper" id="sliderWrapper">
+            <div class="sliderItem">
+                <img src="images/J1_LostnFound.webp" alt="" class="sliderImg" onclick="location.href='J1_page.html';">
+                <div class="sliderbg"></div>
+                <h1 class="sliderTitle"> Jordan 1 <br> Lost and Found</h1>
+                <h2 class="sliderPrice">£200</h2>
+                <button class="buy" onclick="location.href='J1_page.html';" >BUY!</button>
+            </div>
+            <div class="sliderItem">
+                <img src="images/Bape_hat.png" alt="" class="sliderImg" onclick="location.href='Ape_page.html';">
+                <div class="sliderbg"></div>
+                <h1 class="sliderTitle"> Bathing Ape <br> Red Camo Hat </h1>
+                <h2 class="sliderPrice">£140</h2>
+                <button class="buy" onclick="location.href='Ape_page.html';">BUY!</button>
+            </div>
+            <div class="sliderItem">
+                <img src="images/14K_ring.webp" alt="" class="sliderImg" onclick="location.href='Ring_page.html';">
+                <div class="sliderbg"></div>
+                <h1 class="sliderTitle"> "SH" Signet Ring <br> ( 14k Gold)</h1>
+                <h2 class="sliderPrice">£2000</h2>
+                <button class="buy" onclick="location.href='Ring_page.html';">BUY!</button>
+            </div>
+            <div class="sliderItem">
+                <img src="images/MK_coat.webp" alt="" class="sliderImg" onclick="location.href='Coat_page.html';">
+                <div class="sliderbg">
+                </div>
+                <h1 class="sliderTitle"> Moose Knuckles <br> Bomber Jacket</h1>
+                <h2 class="sliderPrice">£999</h2>
+                <button class="buy" onclick="location.href='Coat_page.html';">BUY!</button>
+            </div>
+        </div>
+        <button class="arrow right-arrow" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        // Slider
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            sliderWrapper.style.transform = `translateX(-${index * 100}vw)`;
+        }
+
+        function nextSlide() {
+            const totalSlides = document.querySelectorAll('.sliderItem').length;
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            const totalSlides = document.querySelectorAll('.sliderItem').length;
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        //fetch function to retrieve from sql table
+        async function fetchProductPrices() {
+        const response = await fetch('http://localhost:5000/products');
+        const products = await response.json();
+
+        // implements price into product price.
+        const priceElements = document.querySelectorAll('.sliderPrice');
+        products.forEach((product, index) => {
+            
+            if (priceElements[index]) {
+                priceElements[index].textContent = `£${product.price}`;
+            }
+        });
+        }
+
+        
+        fetchProductPrices();
+    </script>
+
+<!-- Footer-->
+<footer>
+    <div class="footerUpper">
+        <h1 class="FAQs">FAQs</h1>
+        <div class="faq-item">
+            <p class="question" tabindex="0"><strong>Q: What is your return policy?</strong></p>
+            <p class="answer">A: We accept returns within 30 days of purchase. Items must be in original condition with all tags attached.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question" tabindex="0"><strong>Q: How can I track my order?</strong></p>
+            <p class="answer">A: Once your order has shipped, you will receive an email with tracking information. You can also track your order in the 'Account' section on our website.</p>
+        </div>
+        <div class="faq-item">
+            <p class="question" tabindex="0"><strong>Q: Do you offer international shipping?</strong></p>
+            <p class="answer">A: Yes, we ship worldwide. Shipping costs and delivery times vary depending on the destination.</p>
+        </div>
+    </div>
+    <div class="footerLower">
+        <div class="contactItem">
+            <h1 class="phone">Phone</h1>
+            <p class="phone_num">(+44) 7587 479 309</p>
+        </div>
+        <div class="contactItem">
+            <h1 class="address">Address</h1>
+            <p class="address_loc">Royal Holloway, Egham Hill, Egham</p>
+        </div>
+        <div class="contactItem">
+            <h1 class="Email">Email</h1>
+            <p class="Email_add">ZLAC321@live.rhul.ac.uk</p>
+        </div>
+    </div>
+</footer>
+   
+    
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Spezial - ZA</title>
+    <link rel="icon" href="images/ZA_logo.png">
+    <link rel="stylesheet" href="css/style_products.css">
+</head>
+<body>
+    <!---
+        Navigation Bar-->
+        <nav>
+            <div class="navOne">
+    
+                <div class="navLogo">
+                    <img src="images/ZA_logo.png" alt="" width = "100" height="100" onclick="location.href='HomePage.html';">
+                </div>
+    
+                <div class="navSearch">
+                    <div class="search">
+                        <input type = "text" placeholder="Search..." class="searchInput">
+                    </div>
+    
+                </div>
+    
+                <div class="navCart">
+                    <img src="images/Cart.png" alt="" width = "50" height="50" onclick="location.href='basket.html';">
+                </div>
+    
+            </div>
+            <!--Navigation Categories-->
+            <div class="navTwo">
+                <h3 class="itemCat" onclick="location.href='ShoesPage.html';"> SHOES </h3>
+                <h3 class="itemCat" onclick="location.href='HatsPage.html';"> HATS </h3>
+                <h3 class="itemCat" onclick="location.href='AccPage.html';"> ACCESSORIES </h3>
+                <h3 class="itemCat" onclick="location.href='AppPage.html';"> APPAREL </h3>
+        
+        
+            </div>
+        </nav>
+
+    <main>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="images/adidas_spez.webp" alt="Product Image" class="main-image">
+            </div>
+
+            <div class="product-details">
+                <h1 class="product-title">Adidas Spezial </h1>
+                <p class="product-description">First introduced in 1979 for elite handball players, these shoes are now beloved for their classic style. This version is built with a nubuck suede upper for a supple feel. A soft gum rubber outsole keeps them true to their vintage roots.</p>
+                <p class="product-price">Price: <strong>&pound;99</strong></p>
+
+                <div class="product-options">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                    </select>
+
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+                </div>
+
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                <button class="buy-now" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+
+        <section class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="review">
+                <p><strong>John Doe:</strong> Excellent product! Highly recommend. 5/5</p>
+            </div>
+            <div class="review">
+                <p><strong>Jane Smith:</strong> Good quality and fast delivery. Will purchase again. 4.5/5</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+        // Add to Cart.
+        function addToCart() {
+            const productTitle = document.querySelector('.product-title').textContent;
+            let productPrice = document.querySelector('.product-price strong').textContent;
+            const productSize = document.getElementById('size').value;
+            const productQuantity = document.getElementById('quantity').value;
+
+            productPrice = parseFloat(productPrice.replace(/[^0-9.]/g, ''));
+
+            const item = {
+                title: productTitle,
+                price: productPrice,
+                size: productSize,
+                quantity: productQuantity,
+            };
+
+            basket.push(item);
+            localStorage.setItem("basket", JSON.stringify(basket));
+            alert('Item added to basket!');
+        }
+
+        // Buy Now.
+        function buyNow() {
+            addToCart();
+            setTimeout(function() {   
+                location.href = 'basket.html';
+            }, 1000);
+        }
+    </script>
+
+    <!--Footer-->
+    <footer>
+        <div class="footerUpper">
+            <h1 class="FAQs">FAQs</h1>
+            <div class="faq-item">
+                <p class="question" tabindex="0"><strong>Q: What is your return policy?</strong></p>
+                <p class="answer">A: We accept returns within 30 days of purchase. Items must be in original condition with all tags attached.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question" tabindex="0"><strong>Q: How can I track my order?</strong></p>
+                <p class="answer">A: Once your order has shipped, you will receive an email with tracking information. You can also track your order in the 'Account' section on our website.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question" tabindex="0"><strong>Q: Do you offer international shipping?</strong></p>
+                <p class="answer">A: Yes, we ship worldwide. Shipping costs and delivery times vary depending on the destination.</p>
+            </div>
+        </div>
+        <div class="footerLower">
+            <div class="contactItem">
+                <h1 class="phone">Phone</h1>
+                <p class="phone_num">(+44) 7587 479 309</p>
+            </div>
+            <div class="contactItem">
+                <h1 class="address">Address</h1>
+                <p class="address_loc">Royal Holloway, Egham Hill, Egham</p>
+            </div>
+            <div class="contactItem">
+                <h1 class="Email">Email</h1>
+                <p class="Email_add">ZLAC321@live.rhul.ac.uk</p>
+            </div>
+        </div>
+    </footer>
+   
+    
+</body>
+</html>

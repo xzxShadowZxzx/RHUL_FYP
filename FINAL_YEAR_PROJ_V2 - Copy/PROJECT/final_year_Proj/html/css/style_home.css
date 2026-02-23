@@ -1,0 +1,268 @@
+html{
+    padding: -10px;
+    margin: -10px;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 40%, #9966CC 100%);
+    overflow-x: hidden;
+    }
+
+nav{
+    border: none;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 20px 50px;
+}
+
+.navOne{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navCart {
+    background-color: #9966CC;
+    width: 70px; 
+    height: 70px;
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.navCart:hover{
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    background-color: grey;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.searchInput{
+    background-color: transparent;
+    border: none;
+}
+
+.searchInput::placeholder{
+    color: white;
+
+}
+
+.account{
+    font-size: 20px;
+    cursor: pointer;
+    color: #9966CC;
+
+}
+
+.navLogo{
+    cursor: pointer;
+    margin-left: -40px;
+    margin-top: -10px;
+}
+
+.navTwo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Sriracha", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #f76c6c;
+}
+
+.itemCat{
+    margin-right: 55px;
+    cursor: pointer;
+}
+
+.itemCat:hover{
+    color: white
+}
+
+ 
+.slider {
+    
+}
+
+.sliderWrapper{
+    display: flex;
+    width: 400vw;
+    
+
+}
+
+.sliderItem{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sliderTitle{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+    color:white;
+}
+
+.sliderPrice{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    color: white;
+    border: 1px;
+    
+}
+
+.buy{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    font-size: 60px;
+    font-weight: 900;
+    color: lime;
+    border: 5px solid black;
+    z-index: 1;
+    cursor: pointer;
+    background-color: black;
+}
+
+.buy:hover{
+    background-color: white;
+    color: black;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+}
+.left-arrow {
+    left: 10px;
+}
+.right-arrow {
+    right: 10px;
+}
+
+.sliderItem:nth-child(4){
+    background: radial-gradient(circle, #602899 40%, #9966CC 100%);
+}
+
+footer {
+    background-color: black; 
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footerUpper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.FAQs {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #9966CC;
+    text-transform: uppercase;
+    border-bottom: 2px solid #9966CC;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.faq-item {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.question {
+    font-size: 18px;
+    color: #f76c6c;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.question:focus {
+    outline: 2px solid #9966CC;
+    border-radius: 5px;
+}
+
+.answer {
+    font-size: 16px;
+    color: #80FF80;
+    display: none;
+    margin-top: 5px;
+}
+
+.faq-item:hover .answer, .faq-item:focus-within .answer {
+    display: block;
+}
+
+.faq-item:hover {
+    border-color: #9966CC;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.footerLower {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    padding: 0;
+    margin: 0;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+}
+
+.contactItem h1, .contactItem p {
+    margin: 0; 
+    padding: 5px 0; 
+}
+
+.phone{
+    color: aqua;
+}
+
+.phone_num{
+    color:violet
+}
+
+.address{
+    color: aqua;
+}
+
+.address_loc{
+    color: violet;
+}
+
+.Email{
+    color: aqua;
+}
+
+.Email_add{
+    color:violet;
+}
